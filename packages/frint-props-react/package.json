@@ -1,0 +1,35 @@
+{
+  "name": "frint-props-react",
+  "version": "0.0.0",
+  "description": "React higher-order component FrintJS Apps",
+  "main": "lib/index.js",
+  "homepage": "https://github.com/frintjs/frint-props/tree/master/packages/frint-props-react",
+  "scripts": {
+    "lint": "cross-env ../../node_modules/.bin/eslint --color '{src,test}/**/*.js'",
+    "transpile": "cross-env ../../node_modules/.bin/babel src --out-dir lib",
+    "test": "cross-env ../../node_modules/.bin/mocha --colors --compilers js:babel-register --recursive ./src/**/*.spec.js",
+    "cover:run": "cross-env ../../node_modules/.bin/nyc --reporter=json --require babel-register ../../node_modules/.bin/mocha --colors --compilers js:babel-register --recursive ./src/**/*.spec.js",
+    "cover:report": "cross-env ../../node_modules/.bin/nyc report",
+    "cover": "npm run cover:run && npm run cover:report",
+    "dist:lib": "cross-env ../../node_modules/.bin/webpack --config ./webpack.config.js",
+    "dist:min": "cross-env DIST_MIN=1 ../../node_modules/.bin/webpack --config ./webpack.config.js",
+    "dist": "npm run dist:lib && npm run dist:min",
+    "prepublish": "npm run transpile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frintjs/frint-props-react.git"
+  },
+  "author": "frint-props Authors (https://github.com/frintjs/frint-props/graphs/contributors)",
+  "keywords": [
+    "frint"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^5.0.5"
+  },
+  "bugs": {
+    "url": "https://github.com/frintjs/frint-props/issues"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "frint-props",
+  "description": "Library for composing props reactively",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "transpile": "lerna run transpile",
+    "lint": "lerna run lint",
+    "cover": "lerna run cover",
+    "test": "lerna run test",
+    "alex": "alex .",
+    "dist": "lerna run dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frintjs/frint-props.git"
+  },
+  "author": "frint-props Authors (https://github.com/frintjs/frint-props/graphs/contributors)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frintjs/frint-props/issues"
+  },
+  "homepage": "https://github.com/frintjs/frint-props#readme",
+  "devDependencies": {
+    "alex": "^5.0.0",
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.13.2",
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-travix": "^1.1.0",
+    "babel-register": "^6.9.0",
+    "eslint": "^4.1.0",
+    "eslint-config-travix": "^3.0.1",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.0.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "istanbul-combine": "^0.3.0",
+    "lerna": "^2.0.0-beta.38",
+    "lerna-changelog": "^0.7.0",
+    "webpack": "^3.0.0"
+  }
+}

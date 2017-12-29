@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "travix"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "no-underscore-dangle": 0,
+    "no-restricted-imports": ["error", {
+      "paths": [
+        "lodash",
+        "rxjs",
+        "rxjs/add/*"
+      ]
+    }]
+  }
+}
