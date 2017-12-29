@@ -7,10 +7,9 @@
   "scripts": {
     "lint": "cross-env ../../node_modules/.bin/eslint --color '{src,test}/**/*.js'",
     "transpile": "cross-env ../../node_modules/.bin/babel src --out-dir lib",
-    "test": "cross-env ../../node_modules/.bin/mocha --colors --compilers js:babel-register --recursive ./src/**/*.spec.js",
-    "cover:run": "cross-env ../../node_modules/.bin/nyc --reporter=json --require babel-register ../../node_modules/.bin/mocha --colors --compilers js:babel-register --recursive ./src/**/*.spec.js",
-    "cover:report": "cross-env ../../node_modules/.bin/nyc report",
-    "cover": "npm run cover:run && npm run cover:report",
+    "test": "cross-env ../../node_modules/.bin/jest ./src",
+    "cover:run": "cross-env ../../node_modules/.bin/jest --coverage ./src",
+    "cover": "npm run cover:run",
     "dist:lib": "cross-env ../../node_modules/.bin/webpack --config ./webpack.config.js",
     "dist:min": "cross-env DIST_MIN=1 ../../node_modules/.bin/webpack --config ./webpack.config.js",
     "dist": "npm run dist:lib && npm run dist:min",
