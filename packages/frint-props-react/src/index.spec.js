@@ -1,3 +1,4 @@
+/* global describe, test, expect */
 import lib from './index';
 
 describe('frint-props-react :: index', function () {
