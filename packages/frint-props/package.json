@@ -23,7 +23,9 @@
   "keywords": [
     "frint"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "is-observable": "^1.1.0"
+  },
   "devDependencies": {
     "cross-env": "^5.0.5"
   },

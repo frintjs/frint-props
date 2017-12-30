@@ -1,9 +1,9 @@
 import { of } from 'rxjs/observable/of';
 
 export function withDefaults(defaults) {
-  return function (app, props$) {
+  return function (...args) {
     const defaultsObj = typeof defaults === 'function'
-      ? defaults(app, props$)
+      ? defaults(...args)
       : defaults;
 
     const result$ = of(defaultsObj);
