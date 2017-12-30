@@ -4,6 +4,9 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "func-names": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
     "no-underscore-dangle": 0,
     "no-restricted-imports": ["error", {
       "paths": [
