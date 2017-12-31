@@ -106,6 +106,10 @@ export default observe(function (app, parentProps$) {
 });
 ```
 
+## Note
+
+The `frint-props` package's API is highly inspired by the awesome [Recompose](https://github.com/acdlite/recompose), but done with RxJS from the ground up and to play nicely with [FrintJS](https://github.com/frintjs/frint) while being agnostic of any specific rendering library.
+
 ## License
 
 MIT
