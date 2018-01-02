@@ -19,7 +19,7 @@ describe('frint-props :: pipe', function () {
       pipe(map(props => ({
         ...props,
         counter: props.counter * 10,
-      })))
+      }))),
     )());
 
     expect(t.props.counter).toEqual(0);

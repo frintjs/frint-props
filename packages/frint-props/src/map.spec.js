@@ -17,11 +17,11 @@ describe('frint-props :: map', function () {
       withDefaults({ foo: 'foo' }),
       map(props => ({
         foo: props.foo.toUpperCase(),
-      }))
+      })),
     )();
 
     result$.pipe(
-      take(1)
+      take(1),
     ).subscribe(function (result) {
       expect(result.foo).toEqual('FOO');
     });
