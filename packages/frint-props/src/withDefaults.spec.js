@@ -15,7 +15,7 @@ describe('frint-props :: withDefaults', function () {
     })();
 
     result$.pipe(
-      take(1)
+      take(1),
     ).subscribe(function (result) {
       expect(result).toEqual({
         foo: 'foo value',
@@ -35,7 +35,7 @@ describe('frint-props :: withDefaults', function () {
     })('foo', 'bar');
 
     result$.pipe(
-      take(1)
+      take(1),
     ).subscribe(function (result) {
       expect(result).toEqual({
         foo: 'foo',

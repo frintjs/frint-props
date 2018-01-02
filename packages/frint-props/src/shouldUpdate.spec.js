@@ -17,7 +17,7 @@ describe('frint-props :: shouldUpdate', function () {
       shouldUpdate((prevProps, nextProps) => {
         // allow only event numbers
         return nextProps.counter % 2 === 0;
-      })
+      }),
     )());
 
     expect(t.props.counter).toBe(0);

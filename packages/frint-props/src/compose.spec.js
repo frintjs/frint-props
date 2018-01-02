@@ -20,11 +20,11 @@ describe('frint-props :: compose', function () {
       })),
       map(props => ({
         foo: `${props.foo}!!!`,
-      }))
+      })),
     )();
 
     result$.pipe(
-      take(1)
+      take(1),
     ).subscribe(function (result) {
       expect(result.foo).toEqual('FOO!!!');
     });
