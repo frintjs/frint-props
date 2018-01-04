@@ -9,7 +9,7 @@ function makeStateProps$(store, mapper) {
   const state$ = from(store);
 
   return state$.pipe(
-    map(state => mapper(state))
+    map(state => mapper(state)),
   );
 }
 
@@ -17,7 +17,8 @@ function makeDispatchProps(store, actions) {
   return Object
     .keys(actions)
     .reduce(function (acc, actionName) {
-      acc[actionName] = (...args) => store.dispatch(...args);
+      const actionCreator = actions[actionName];
+      acc[actionName] = (...args) => store.dispatch(actionCreator(...args));
 
       return acc;
     }, {});
@@ -34,7 +35,7 @@ function aggregateProps() {
   }));
 }
 
-export function withStore(mapState, mapDispatch, opts = {}) {
+export function withStore(mapState, mapDispatch = {}, opts = {}) {
   const options = {
     providerName: 'store',
     appName: null,
@@ -48,9 +49,9 @@ export function withStore(mapState, mapDispatch, opts = {}) {
 
       return merge(
         makeStateProps$(store, mapState),
-        makeDispatchProps$(store, mapDispatch)
+        makeDispatchProps$(store, mapDispatch),
       ).pipe(
-        aggregateProps()
+        aggregateProps(),
       );
     }
 
@@ -69,11 +70,11 @@ export function withStore(mapState, mapDispatch, opts = {}) {
         switchMap(({ store, dispatchProps }) => (
           merge(
             of(dispatchProps),
-            makeStateProps$(store, mapState)
+            makeStateProps$(store, mapState),
           ).pipe(
-            aggregateProps()
+            aggregateProps(),
           )
-        ))
+        )),
       );
   };
 }
