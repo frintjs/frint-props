@@ -12,6 +12,14 @@
   - [Usage](#usage)
   - [Write your own functions](#write-your-own-functions)
 - [API](#api)
+  - [withDefaults](#withdefaults)
+  - [withState](#withstate)
+  - [withState](#withstate-1)
+  - [withStore](#withstore)
+  - [compose](#compose)
+  - [map](#map)
+  - [pipe](#pipe)
+  - [shouldUpdate](#shouldupdate)
 
 <!-- /MarkdownTOC -->
 
@@ -228,4 +236,149 @@ The `props$` Observable will now emit `{ foo: 'FOO VALUE HERE' }`.
 
 # API
 
-write more here...
+All the functions return a function, when called, returns an Observable of props.
+
+<!-- -->
+
+## withDefaults
+
+> withDefaults(defaultProps)
+
+### Arguments
+
+1. `defaultProps`: Default props to start the stream with
+
+<!-- -->
+
+## withState
+
+> withState(valueName, setterName, initialValue)
+
+### Arguments
+
+1. `valueName` (`String`): Prop name for the value
+1. `setterName` (`String`): Prop name for the setter function
+1. `initialValue` (`any`): Initial value for the state
+
+### Example
+
+```js
+const props$ = withDefaults({ foo: 'foo value here' })();
+```
+
+<!-- -->
+
+## withState
+
+> withState(valueName, setterName, initialValue)
+
+### Arguments
+
+1. `valueName` (`String`): Prop name for the value
+1. `setterName` (`String`): Prop name for the setter function
+1. `initialValue` (`any`): Initial value for the state
+
+### Example
+
+```js
+const props$ = withState('counter', 'setCounter', 0)();
+```
+
+<!-- -->
+
+## withStore
+
+> withStore(mapState, mapDispatch, options = {})
+
+Works with `frint-store` or Redux store set in FrintJS App as a provider.
+
+### Arguments
+
+1. `mapState` (`Function`): Maps state to props
+1. `mapDispatch` (`Object`): Action creators keyed by names
+1. `options` (`Object`) [optional]: Object with additional configuration
+1. `options.providerName` (`String`): Defaults to `store`
+1. `options.appName` (`String`): Defaults to `null`, otherwise name of any Child App
+
+### Example
+
+```js
+const app = new App(); // assuming it has a `store` provider
+
+const props$ = withState('counter', 'setCounter', 0)(app);
+```
+
+<!-- -->
+
+## compose
+
+> compose(...functions)
+
+Composes multiple functions into a combined single function, that can be called later.
+
+### Example
+
+```js
+const props$ = compose(
+  withDefaults({}),
+  withState('counter', 'setCounter', 0),
+  withState('name', 'setName', 'FrintJS'),
+  shouldUpdate((prevProps, nextProps) => true)
+)();
+```
+
+<!-- -->
+
+## map
+
+> map(mapperFn)
+
+### Arguments
+
+1. `mapperFn` (`Function`): Function that accepts processed props, and returns new mapped props object
+
+### Example
+
+```js
+const props$ = compose(
+  withDefaults({ foo: 'foo value' }),
+  map(props => ({ foo: props.foo.toUpperCase() }))
+)();
+```
+
+Will emit `{ foo: 'FOO VALUE' }`.
+
+<!-- -->
+
+## pipe
+
+> pipe(operator)
+
+Pipes with any RxJS operator.
+
+### Arguments
+
+1. `operator` (`Function`): RxJS operator
+
+### Example
+
+```js
+import { map } from 'rxjs/operators/map';
+
+const props$ = compose(
+  withDefaults({ foo: 'foo value' }),
+  pipe(map(props => ({ foo: props.foo.toUpperCase() })))
+)();
+```
+
+<!-- -->
+
+## shouldUpdate
+
+> shouldUpdate((prevProps, nextProps) => true)
+
+Controls when to emit props.
+
+### Arguments
+
+1. `Function`: receives previous and next props, and should return a Boolean deciding whether to update or not
