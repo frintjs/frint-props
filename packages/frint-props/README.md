@@ -93,7 +93,7 @@ Now the `props$` Observable will emit an object with these keys:
 
 ### Composition
 
-You can compose multiple functions together, to generated a combined stream of all props. For that, we can use the `compose` function:
+You can compose multiple functions together to generate a combined stream of all props. For that, we can use the `compose` function:
 
 ```js
 import { compose, withDefaults, withState } from 'frint-props';
