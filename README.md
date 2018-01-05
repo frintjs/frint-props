@@ -49,7 +49,7 @@ import {
   withState,
   shouldUpdate,
   compose
-} from 'frint-react';
+} from 'frint-props';
 
 const props$ = compose(
   withDefaults({ counter: 0 }),
@@ -64,7 +64,7 @@ The `props$` observable will now emit an object with these keys as they are made
 * `counter` (`Integer`)
 * `setCounter` (`Function`)
 * `name` (`String`)
-* `setName` (`String`)
+* `setName` (`Function`)
 
 ### Usage with React
 
