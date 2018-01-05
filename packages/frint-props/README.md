@@ -14,7 +14,6 @@
 - [API](#api)
   - [withDefaults](#withdefaults)
   - [withState](#withstate)
-  - [withState](#withstate-1)
   - [withStore](#withstore)
   - [compose](#compose)
   - [map](#map)
@@ -247,18 +246,6 @@ All the functions return a function, when called, returns an Observable of props
 ### Arguments
 
 1. `defaultProps`: Default props to start the stream with
-
-<!-- -->
-
-## withState
-
-> withState(valueName, setterName, initialValue)
-
-### Arguments
-
-1. `valueName` (`String`): Prop name for the value
-1. `setterName` (`String`): Prop name for the setter function
-1. `initialValue` (`any`): Initial value for the state
 
 ### Example
 
