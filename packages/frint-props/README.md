@@ -48,7 +48,7 @@ Via [unpkg](https://unpkg.com) CDN:
 
 ## Concepts
 
-The package consists of multiple functions, that enables you to compose your props as an RxJS Observable.
+The package consists of multiple functions that enable you to compose your props as an RxJS Observable.
 
 There are two kinds of functions:
 
@@ -59,7 +59,7 @@ And then there is `compose` function that accepts both kinds of functions as arg
 
 ## Usage
 
-We can start small, and have prepare a stream that only emits the props once, and it doesn't change over time:
+We can start small, and prepare a stream that only emits the props once, and it doesn't change over time:
 
 ```js
 import { withDefaults } from 'frint-props';
@@ -78,7 +78,7 @@ props$.subscribe(props => console.log(props));
 
 ### Reactivity
 
-But we have more real world use cases, that requires our props to change over time too. We can consider using `withState` for this example:
+But we have more real world use cases that require our props to change over time too. We can consider using `withState` for this example:
 
 ```js
 import { withState } from 'frint-props';
@@ -195,7 +195,7 @@ withFoo() {
 }
 ```
 
-The way some of our functions are designed in this repository, the returned functions expect to receive the same arguments as our `observe` higher-order component receives in `frint-react`, which are: `app` and `parentProps$`.
+The way some of our functions are designed in this repository, the returned functions expect to receive the same arguments as our [`observe`](https://frint.js.org/guides/higher-order-components/) higher-order component receives in [`frint-react`](https://frint.js.org/docs/packages/frint-react/), which are: `app` and `parentProps$`.
 
 ### Operator functions
 
