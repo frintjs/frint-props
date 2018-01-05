@@ -183,7 +183,7 @@ const props$ = compose(
 )(app);
 ```
 
-The argument `app` can now accessed inside our function like this:
+The argument `app` can now be accessed inside our function like this:
 
 ```js
 withFoo() {
@@ -201,7 +201,7 @@ The way some of our functions are designed in this repository, the returned func
 
 Besides just adding new props, functions can also take care of processing the stream further just like how RxJS operators work.
 
-We can create a function, that will check if there is any `foo` prop, and then capitalize it:
+We can create a function that will check if there is any `foo` prop, and then capitalize it:
 
 ```js
 import { map } from 'rxjs/operators/map';
