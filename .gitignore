@@ -5,6 +5,7 @@ yarn.lock
 lib
 .changelog/
 package-lock.json
+dist
 
 examples/**/build/js/*.js
 examples/**/build/js/*.map
