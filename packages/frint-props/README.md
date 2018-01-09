@@ -319,6 +319,16 @@ const props$ = withObservable(
 )();
 ```
 
+Generated from a function:
+
+```js
+import { of } from 'rxjs/observable/of';
+
+const props$ = withObservable(
+  () => of({ foo: 'foo value here' })
+)();
+```
+
 <!-- -->
 
 ## compose

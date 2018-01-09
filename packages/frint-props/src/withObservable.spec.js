@@ -19,6 +19,15 @@ describe('withObservable', function () {
     expect(t.props.foo).toBe('foo value here');
   });
 
+  test('can generate observable from function', function () {
+    const t = new Tester(compose(
+      withObservable(
+        () => of({ foo: 'foo value here' }),
+      ),
+    )());
+    expect(t.props.foo).toBe('foo value here');
+  });
+
   test('can apply mappers', function () {
     const t = new Tester(compose(
       withObservable(
