@@ -7,8 +7,8 @@
   "scripts": {
     "lint": "cross-env ../../node_modules/.bin/eslint --color '{src,test}/**/*.js'",
     "transpile": "cross-env ../../node_modules/.bin/babel src --out-dir lib",
-    "test": "cross-env ../../node_modules/.bin/jest ./src",
-    "cover:run": "cross-env ../../node_modules/.bin/jest --coverage ./src",
+    "test": "cross-env ../../node_modules/.bin/jest ./src/*.spec.js",
+    "cover:run": "cross-env ../../node_modules/.bin/jest --coverage ./src/*.spec.js",
     "cover": "npm run cover:run",
     "dist:lib": "cross-env ../../node_modules/.bin/webpack --config ./webpack.config.js",
     "dist:min": "cross-env DIST_MIN=1 ../../node_modules/.bin/webpack --config ./webpack.config.js",

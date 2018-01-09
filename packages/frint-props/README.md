@@ -15,6 +15,7 @@
   - [withDefaults](#withdefaults)
   - [withState](#withstate)
   - [withStore](#withstore)
+  - [withObservable](#withobservable)
   - [compose](#compose)
   - [map](#map)
   - [pipe](#pipe)
@@ -293,6 +294,39 @@ Works with `frint-store` or Redux store set in FrintJS App as a provider.
 const app = new App(); // assuming it has a `store` provider
 
 const props$ = withState('counter', 'setCounter', 0)(app);
+```
+
+<!-- -->
+
+## withObservable
+
+> withObservable(source$, ...mappers)
+
+### Arguments
+
+1. `source$` (`Observable` OR function returning `Observable`)
+2. `mapper` (`Function`): Returning props OR Observable of props
+
+### Example
+
+```js
+import { of } from 'rxjs/observable/of';
+
+const props$ = withObservable(
+  of({ foo: 'foo value here' }),
+  props => ({ foo: props.foo.toUpperCase() }),
+  props => ({ foo: `${props.foo}!` })
+)();
+```
+
+Generated from a function:
+
+```js
+import { of } from 'rxjs/observable/of';
+
+const props$ = withObservable(
+  () => of({ foo: 'foo value here' })
+)();
 ```
 
 <!-- -->
