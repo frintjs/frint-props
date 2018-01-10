@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-var externals = require('frint-config').externals;
 
 var minify = process.env.DIST_MIN;
 var plugins = !minify
@@ -24,7 +23,10 @@ module.exports = {
     libraryTarget: 'umd',
     library: 'FrintPropsReact',
   },
-  externals: externals,
+  externals: {
+    'frint-props': 'FrintProps',
+    'frint-react': 'FrintReact',
+  },
   target: 'web',
   plugins: plugins,
   module: {
