@@ -1,6 +1,6 @@
 {
   "name": "frint-props-react",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "React higher-order component FrintJS Apps",
   "main": "lib/index.js",
   "homepage": "https://github.com/frintjs/frint-props/tree/master/packages/frint-props-react",
@@ -23,10 +23,9 @@
   "keywords": [
     "frint"
   ],
-  "dependencies": {},
   "devDependencies": {
     "cross-env": "^5.0.5",
-    "frint-props": "^0.0.0"
+    "frint-props": "^0.1.0"
   },
   "bugs": {
     "url": "https://github.com/frintjs/frint-props/issues"
