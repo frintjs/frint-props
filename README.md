@@ -9,8 +9,6 @@
 
 > Library for composing props reactively in FrintJS Apps
 
-Under heavy development. Do NOT use in production!
-
 ## Packages
 
 * [`frint-props`](./packages/frint-props): Compose props as an RxJS Observable
