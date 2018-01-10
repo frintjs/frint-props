@@ -73,7 +73,7 @@ You can use [`frint-props-react`](./packages/frint-props-react):
 ```js
 import React from 'react';
 import { withDefaults, withState } from 'frint-props';
-import { hoc } from 'frint-props-react';
+import { compose } from 'frint-props-react';
 
 function MyComponent(props) {
   // `props.counter` (`Integer`)
@@ -81,7 +81,7 @@ function MyComponent(props) {
   return <p></p>;
 }
 
-export default hoc(
+export default compose(
   withDefaults({ counter: 0 }),
   withState('counter', 'setCounter', 0)
 )(MyComponent);
