@@ -32,6 +32,8 @@
     "babel-loader": "^7.1.0",
     "babel-preset-travix": "^1.1.0",
     "babel-register": "^6.9.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.1.0",
     "eslint-config-travix": "^4.0.0",
     "eslint-plugin-babel": "^4.0.0",
@@ -40,12 +42,16 @@
     "eslint-plugin-react": "^7.0.1",
     "frint": "^5.2.1",
     "frint-config": "^5.2.1",
+    "frint-react": "^5.2.1",
     "frint-store": "^5.2.1",
     "istanbul": "^1.1.0-alpha.1",
     "istanbul-combine": "^0.3.0",
     "jest": "^22.0.4",
     "lerna": "^2.0.0-beta.38",
     "lerna-changelog": "^0.7.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
     "webpack": "^3.0.0"
   }
 }

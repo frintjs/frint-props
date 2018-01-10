@@ -25,7 +25,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "cross-env": "^5.0.5"
+    "cross-env": "^5.0.5",
+    "frint-props": "^0.0.0"
   },
   "bugs": {
     "url": "https://github.com/frintjs/frint-props/issues"
