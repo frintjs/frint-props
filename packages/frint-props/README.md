@@ -16,6 +16,7 @@
   - [withState](#withstate)
   - [withStore](#withstore)
   - [withObservable](#withobservable)
+  - [withHandlers](#withhandlers)
   - [compose](#compose)
   - [map](#map)
   - [pipe](#pipe)
@@ -327,6 +328,49 @@ import { of } from 'rxjs/observable/of';
 const props$ = withObservable(
   () => of({ foo: 'foo value here' })
 )();
+```
+
+<!-- -->
+
+## withHandlers
+
+> withHandlers(handlers)
+
+This function can be only used via `compose`.
+
+### Arguments
+
+* `handlers` (`Object`): Functions keyed by prop name
+
+### Example
+
+```
+const props$ = compose(
+  withHandlers({
+    handleClick: props => () => console.log('Clicked!')
+  })
+)();
+```
+
+Other props are accessible too:
+
+```js
+const props$ = compose(
+  withState('counter', 'setCounter', 0),
+  withHandlers({
+    increment: props => () => props.setCounter(props.counter + 1)
+  })
+)();
+```
+
+Additional arguments can be accessed as follows:
+
+```js
+const props$ = compose(
+  withHandlers({
+    handleClick: (props, arg1, arg2) => () => console.log('Clicked!')
+  })
+)(arg1, arg2);
 ```
 
 <!-- -->

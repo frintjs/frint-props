@@ -26,7 +26,11 @@ export function compose(...items) {
       };
     }, {});
 
-    const result$ = merge(...observables)
+    const toMerge = observables.length === 0
+      ? [of({})]
+      : observables;
+
+    const result$ = merge(...toMerge)
       .pipe(...pipes);
 
     result$.defaultProps = defaultProps;
