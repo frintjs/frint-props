@@ -1,8 +1,10 @@
+/* global describe, test, expect */
+/* eslint-disable react/prop-types, react/jsx-no-bind */
 import React from 'react';
 import { createApp } from 'frint';
 import { getMountableComponent } from 'frint-react';
 import { withDefaults, withState } from 'frint-props';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 
 import { compose } from './compose';
@@ -12,7 +14,7 @@ Enzyme.configure({
 });
 
 describe('frint-props-react :: compose', function () {
-  function BaseComponent (props) {
+  function BaseComponent(props) {
     const { counter, setCounter } = props;
 
     return (
@@ -46,20 +48,20 @@ describe('frint-props-react :: compose', function () {
     ],
   });
 
-  test('has initial value', function () {
+  test('can render with initial props', function () {
     const app = new App();
     const ComponentToTest = getMountableComponent(app);
 
-    const wrapper = shallow(<ComponentToTest />);
+    const wrapper = mount(<ComponentToTest />);
     const html = wrapper.html();
     expect(html).toContain('>0</span>');
   });
 
-  test('can work with React', function () {
+  test('can re-render with updated props', function () {
     const app = new App();
     const ComponentToTest = getMountableComponent(app);
 
-    const wrapper = shallow(<ComponentToTest />);
+    const wrapper = mount(<ComponentToTest />);
 
     wrapper.find('#increment').last().simulate('click');
     wrapper.find('#increment').last().simulate('click');
