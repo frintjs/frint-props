@@ -12,48 +12,59 @@ Enzyme.configure({
 });
 
 describe('frint-props-react :: compose', function () {
+  function BaseComponent (props) {
+    const { counter, setCounter } = props;
+
+    return (
+      <div>
+        <p>
+          Counter: <span id="counter">{counter}</span>
+        </p>
+
+        <a
+          id="increment"
+          onClick={() => setCounter(counter + 1)}
+        >
+          Increment
+        </a>
+      </div>
+    );
+  }
+
+  const Component = compose(
+    withDefaults({ counter: 0 }),
+    withState('counter', 'setCounter', 0),
+  )(BaseComponent);
+
+  const App = createApp({
+    name: 'TestApp',
+    providers: [
+      {
+        name: 'component',
+        useValue: Component,
+      },
+    ],
+  });
+
+  test('has initial value', function () {
+    const app = new App();
+    const ComponentToTest = getMountableComponent(app);
+
+    const wrapper = shallow(<ComponentToTest />);
+    const html = wrapper.html();
+    expect(html).toContain('>0</span>');
+  });
+
   test('can work with React', function () {
-    function BaseComponent (props) {
-      return (
-        <div>
-          <p>
-            Counter: <span className="counter">{props.counter}</span>
-          </p>
-
-          <a
-            className="increment"
-            onClick={() => props.setCounter(props.counter + 1)}
-          >
-            Increment
-          </a>
-        </div>
-      );
-    }
-
-    const Component = compose(
-      withDefaults({ counter: 0 }),
-      withState('counter', 'setCounter', 0),
-    )(BaseComponent);
-
-    const App = createApp({
-      name: 'TestApp',
-      providers: [
-        {
-          name: 'component',
-          useValue: Component,
-        },
-      ],
-    });
-
     const app = new App();
     const ComponentToTest = getMountableComponent(app);
 
     const wrapper = shallow(<ComponentToTest />);
 
-    console.log(wrapper.html());
-    console.log('counter', wrapper.find('.counter').last());
+    wrapper.find('#increment').last().simulate('click');
+    wrapper.find('#increment').last().simulate('click');
 
-    wrapper.find('.increment').last().simulate('click');
-    console.log(wrapper.html());
+    const html = wrapper.html();
+    expect(html).toContain('>2</span>');
   });
 });
