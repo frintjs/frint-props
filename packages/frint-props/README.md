@@ -344,7 +344,7 @@ This function can be only used via `compose`.
 
 ### Example
 
-```
+```js
 const props$ = compose(
   withHandlers({
     handleClick: props => () => console.log('Clicked!')
