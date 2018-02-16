@@ -8,6 +8,10 @@ import { scan } from 'rxjs/operators/scan';
 function makeStateProps$(store, mapper) {
   const state$ = from(store);
 
+  if (mapper === null) {
+    return state$;
+  }
+
   return state$.pipe(
     map(state => mapper(state)),
   );

@@ -91,6 +91,17 @@ describe('withStore', function () {
     expect(t.props.counter).toBe(10);
   });
 
+  test('accept null as a mapper parameter', function () {
+    const app = createAndInstantiateTestApp();
+
+    const t = new Tester(compose(
+      withStore(null, {
+        increment: incrementCounter,
+      }),
+    )(app));
+    expect(typeof t.props.increment).toBe('function');
+  });
+
   test('can dispatch actions, and update value', function () {
     const app = createAndInstantiateTestApp();
 
