@@ -283,7 +283,7 @@ Works with `frint-store` or Redux store set in FrintJS App as a provider.
 
 ### Arguments
 
-1. `mapState` (`Function`): Maps state to props
+1. `mapState` (`Function` OR `null`): Maps state to props
 1. `mapDispatch` (`Object`): Action creators keyed by names
 1. `options` (`Object`) [optional]: Object with additional configuration
 1. `options.providerName` (`String`): Defaults to `store`
@@ -294,7 +294,32 @@ Works with `frint-store` or Redux store set in FrintJS App as a provider.
 ```js
 const app = new App(); // assuming it has a `store` provider
 
-const props$ = withState('counter', 'setCounter', 0)(app);
+const mapState = state => ({
+  foo: state.foo,
+  bar: state.bar
+});
+
+const mapDispatch = {
+  handleClick: () => ({
+    type: 'HANDLE_CLICK'
+  })
+};
+
+const props$ = withStore(mapState, mapDispatch)(app);
+```
+
+You can also pass `null` in place of `mapState` parameter if you don't want to subscribe to store updates.
+
+```js
+const app = new App(); // assuming it has a `store` provider
+
+const mapDispatch = {
+  handleClick: () => ({
+    type: 'HANDLE_CLICK'
+  })
+};
+
+const props$ = withStore(null, mapDispatch)(app);
 ```
 
 <!-- -->
