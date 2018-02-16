@@ -1,5 +1,6 @@
 import { of } from 'rxjs/observable/of';
 import { merge } from 'rxjs/observable/merge';
+import { scan } from 'rxjs/operators/scan';
 import isObservable from 'is-observable';
 
 export function compose(...items) {
@@ -31,6 +32,10 @@ export function compose(...items) {
       : observables;
 
     const result$ = merge(...toMerge)
+      .pipe(scan((props, emitted) => ({
+        ...props,
+        ...emitted,
+      })))
       .pipe(...pipes);
 
     result$.defaultProps = defaultProps;
