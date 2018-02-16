@@ -49,7 +49,9 @@ describe('withObservable', function () {
         () => of({ foo: 'foo value here' }),
       ),
     )());
+
     expect(t.props.testingDefaultProp).toBe('test');
+    expect(t.props.foo).toBe('foo value here');
   });
 
   test('withObservable should not override default props #2', function () {
@@ -64,7 +66,10 @@ describe('withObservable', function () {
         () => of({ foo2: 'foo value here' }),
       ),
     )());
+
     expect(t.props.testingDefaultProp).toBe('test');
+    expect(t.props.foo).toBe('foo value here');
+    expect(t.props.foo2).toBe('foo value here');
   });
 
   test('withObservable should not override default props #3', function () {
@@ -76,6 +81,8 @@ describe('withObservable', function () {
         testingDefaultProp: 'test',
       }),
     )());
+
     expect(t.props.testingDefaultProp).toBe('test');
+    expect(t.props.foo).toBe('foo value here');
   });
 });
