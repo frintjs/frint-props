@@ -93,13 +93,16 @@ describe('withStore', function () {
 
   test('accept null as a mapper parameter', function () {
     const app = createAndInstantiateTestApp();
+    const mapDispatch = {
+      increment: incrementCounter,
+    };
 
     const t = new Tester(compose(
-      withStore(null, {
-        increment: incrementCounter,
-      }),
+      withStore(null, mapDispatch),
     )(app));
-    expect(typeof t.props.increment).toBe('function');
+
+    expect(t.props).toHaveProperty('increment');
+    expect(Object.keys(t.props)).toHaveLength(1);
   });
 
   test('can dispatch actions, and update value', function () {
