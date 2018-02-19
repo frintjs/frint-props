@@ -6,6 +6,12 @@ import { switchMap } from 'rxjs/operators/switchMap';
 import { scan } from 'rxjs/operators/scan';
 
 function makeStateProps$(store, mapper) {
+  // when no mapper is given, we can just stream a plain object once,
+  // which will be merged with dispatchable action creators later
+  if (!mapper) {
+    return of({});
+  }
+
   const state$ = from(store);
 
   return state$.pipe(
