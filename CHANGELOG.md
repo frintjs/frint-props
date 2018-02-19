@@ -1,5 +1,14 @@
 # Change Log
 
+## v0.2.0 (2018-02-19)
+
+#### Pull Requests
+* `frint-props`
+  * [#29](https://github.com/frintjs/frint-props/pull/29) Add support for null instead of mapState function to not subscribe to the store. ([@leandrooriente](https://github.com/leandrooriente))
+
+#### Committers: 1
+- Leandro Oriente ([leandrooriente](https://github.com/leandrooriente))
+
 ## v0.1.1 (2018-02-16)
 
 #### Bug fix
