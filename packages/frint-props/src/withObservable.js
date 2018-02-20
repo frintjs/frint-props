@@ -1,6 +1,6 @@
 import { of } from 'rxjs/observable/of';
 import { switchMap } from 'rxjs/operators/switchMap';
-import isObservable from 'is-observable';
+import isObservable from './isObservable';
 
 export function withObservable(source, ...mappers) {
   return function (...args) {
