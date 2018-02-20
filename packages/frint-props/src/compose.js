@@ -1,7 +1,7 @@
 import { of } from 'rxjs/observable/of';
 import { merge } from 'rxjs/observable/merge';
 import { scan } from 'rxjs/operators/scan';
-import isObservable from 'is-observable';
+import isObservable from './isObservable';
 
 export function compose(...items) {
   return function (...args) {
