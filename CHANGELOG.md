@@ -1,5 +1,14 @@
 # Change Log
 
+## v0.2.1 (2018-03-29)
+
+#### Pull Requests
+* `frint-props`
+  * [#34](https://github.com/frintjs/frint-props/pull/34) Export withHandlers() from frint-props. ([@viacheslaff](https://github.com/viacheslaff))
+
+#### Committers: 1
+- Viacheslav Zhuravski ([viacheslaff](https://github.com/viacheslaff))
+
 ## v0.2.0 (2018-02-19)
 
 #### Pull Requests
