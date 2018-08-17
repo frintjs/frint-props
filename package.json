@@ -33,7 +33,7 @@
     "babel-preset-travix": "^1.1.0",
     "babel-register": "^6.9.0",
     "enzyme": "^3.4.3",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.2.0",
     "eslint": "^4.1.0",
     "eslint-config-travix": "^4.0.0",
     "eslint-plugin-babel": "^4.0.0",
