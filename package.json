@@ -42,7 +42,7 @@
     "eslint-plugin-react": "^7.0.1",
     "frint": "^5.2.1",
     "frint-config": "^5.2.1",
-    "frint-react": "^5.2.1",
+    "frint-react": "^5.7.1",
     "frint-store": "^5.2.1",
     "istanbul": "^1.1.0-alpha.1",
     "istanbul-combine": "^0.3.0",
