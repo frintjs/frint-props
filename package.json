@@ -40,7 +40,7 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.0.1",
-    "frint": "^5.2.1",
+    "frint": "^5.7.1",
     "frint-config": "^5.2.1",
     "frint-react": "^5.2.1",
     "frint-store": "^5.2.1",
