@@ -39,7 +39,7 @@
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-react": "^7.14.1",
     "frint": "^5.2.1",
     "frint-config": "^5.2.1",
     "frint-react": "^5.2.1",
