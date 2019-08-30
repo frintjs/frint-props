@@ -34,7 +34,7 @@
     "babel-register": "^6.9.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.1.0",
+    "eslint": "^6.3.0",
     "eslint-config-travix": "^4.0.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.0.1",
